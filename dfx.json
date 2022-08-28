@@ -1,31 +1,35 @@
 {
-  "version": 1,
-  "dfx": "0.11.1",
   "canisters": {
     "simple_website_backend": {
-      "type": "motoko",
-      "main": "src/simple_website_backend/main.mo"
+      "main": "src/simple_website_backend/main.mo",
+      "type": "motoko"
     },
     "simple_website_frontend": {
-      "type": "assets",
-      "source": [
-        "src/simple_website_frontend/assets"
-      ],
       "dependencies": [
         "simple_website_backend"
-      ]
+      ],
+      "frontend": {
+        "entrypoint": "src/simple_website_frontend/src/index.html"
+      },
+      "source": [
+        "src/simple_website_frontend/assets",
+        "dist/simple_website_frontend/"
+      ],
+      "type": "assets"
     }
   },
   "defaults": {
     "build": {
-      "packtool": "",
-      "args": ""
+      "args": "",
+      "packtool": ""
     }
   },
+  "dfx": "0.11.1",
   "networks": {
     "local": {
       "bind": "127.0.0.1:8000",
       "type": "ephemeral"
     }
-  }
+  },
+  "version": 1
 }
